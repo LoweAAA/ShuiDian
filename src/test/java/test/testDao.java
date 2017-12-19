@@ -16,6 +16,6 @@ public class testDao {
 
     @Test
     public void testAccountDao(){
-        System.out.println(accountDao.query(1,"2017/12"));
+        System.out.println(accountDao.getAll(1));
     }
 }
