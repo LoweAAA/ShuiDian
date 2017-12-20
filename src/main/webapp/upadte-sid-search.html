@@ -1,0 +1,140 @@
+<!--管理员修改信息界面（按学号查询）-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="style/admin-update.css">
+    <link rel="stylesheet" href="style/jquery.monthpicker.css">
+    <script src="script/jquery-3.2.1.js"></script>
+    <script src="script/jquery.monthpicker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#monthpicker').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6,
+                onMonthSelect: function(m, y) {
+                    console.log('Month: ' + m + ', year: ' + y);
+                }
+            });
+            $('#monthly').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6
+            })
+        });
+    </script>
+</head>
+
+
+<header>
+    <div class="top">
+        <img src="image/univ1.png">
+        <a href="upadte-page.html">学生水电费管理系统</a>
+    </div>
+</header>
+
+<body>
+<div class="left-part">
+    <div class="word">
+        <ul>
+            <a href="upadte-page.html"  style="background-color: white; color: #000;">
+                <li>修改数据</li>
+            </a>
+            <a href="add-page.html">
+                <li>添加数据</li>
+            </a>
+            <a href="delete-page.html" >
+                <li>删除数据</li>
+            </a>
+            <a href="login.html" >
+                <li>退出</li>
+            </a>
+
+        </ul>
+
+    </div>
+</div>
+<div class="right-top">
+    <div class="search-additon">
+        <div class="dormid">
+            <ul>
+                <li>
+                    <a href="update-dormid-search.html">
+                        按寝号查询
+                    </a>
+                </li>
+                <li>
+                    <a href="upadte-sid-search.html" style="background-color: white;color: black;">
+                        按学号查询
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="search-part">
+        <form method="post">
+            <input type="text" required="required" placeholder="请输入您的学号" name="u">
+            <button class="button" type="submit">
+                <a style="cursor: pointer">搜索</a>
+            </button>
+        </form>
+    </div>
+    <div class="search-date">
+        <input type="text" class="input" id="monthly" placeholder="点击选择月份">
+    </div>
+</div>
+
+<div class="right-part">
+    <table style="width: 100%" border="0" id="tb">
+        <tr class="content" >
+            <th>时间</th>
+            <th>寝室号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>用水量</th>
+            <th>用电量</th>
+            <th>水费</th>
+            <th>电费</th>
+            <th>修改</th>
+        </tr>
+
+        <tr class="content-gray" >
+            <td>2017-11</td>
+            <td>10-111</td>
+            <td>15051000</td>
+            <td>Miss wang</td>
+            <td>170l</td>
+            <td>3000度</td>
+            <td>15元</td>
+            <td>100元</td>
+            <td>
+                <a href="true-update.html" style="color: darkred">修改</a>
+            </td>
+        </tr>
+
+        <tr class="content-white">
+            <td>2017-11</td>
+            <td>10-111</td>
+            <td>15051000</td>
+            <td>Miss wang</td>
+            <td>170l</td>
+            <td>3000度</td>
+            <td>15元</td>
+            <td>100元</td>
+            <td>
+                <a href="true-update.html" style="color: darkred">修改</a>
+            </td>
+        </tr>
+
+
+
+
+    </table>
+</div>
+
+
+
+</body>
+</html>

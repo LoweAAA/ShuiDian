@@ -15,8 +15,8 @@ public class AccountServiceImpl implements AccountService{
     private AccountDao accountDao;
 
 
-    public List getAccountsByUserId(Integer userId) {
-        return accountDao.getAll(userId);
+    public List getAccounts() {
+        return accountDao.getAll();
     }
 
     public List getAccountsByUserIdTime(Integer userId, String time) {

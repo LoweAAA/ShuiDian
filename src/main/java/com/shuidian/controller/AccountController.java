@@ -17,10 +17,10 @@ public class AccountController {
     @Autowired
     private AccountService accountService;
 
-    @RequestMapping("/getbyuserid")
+    @RequestMapping("/getall")
     @ResponseBody
-    public List getByUserId(@RequestParam("userid") Integer userId){
-        return accountService.getAccountsByUserId(userId);
+    public List getByUserId(){
+        return accountService.getAccounts();
     }
 
 

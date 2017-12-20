@@ -1,0 +1,110 @@
+<!--管理员点击修改后，进行修改页面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="style/admin-update.css">
+    <link rel="stylesheet" href="style/jquery.monthpicker.css">
+    <script src="script/jquery-3.2.1.js"></script>
+    <script src="script/jquery.monthpicker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#monthpicker').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6,
+                onMonthSelect: function(m, y) {
+                    console.log('Month: ' + m + ', year: ' + y);
+                }
+            });
+            $('#monthly').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6
+            })
+        });
+    </script>
+</head>
+
+
+<header>
+    <div class="top">
+        <img src="image/univ1.png">
+        <a href="upadte-page.html">学生水电费管理系统</a>
+    </div>
+</header>
+
+<body>
+<div class="left-part">
+    <div class="word">
+        <ul>
+            <a href="upadte-page.html"  style="background-color: white; color: #000;">
+                <li>修改数据</li>
+            </a>
+            <a href="add-page.html">
+                <li>添加数据</li>
+            </a>
+            <a href="delete-page.html" >
+                <li>删除数据</li>
+            </a>
+            <a href="login.html">
+                <li>退出</li>
+            </a>
+
+        </ul>
+
+    </div>
+</div>
+<div class="add-right-top">
+    <div class="blank">
+        <h2>修改数据</h2>
+        <form class="add-search">
+            <label>请选择月份:</label>
+            <input type="text" class="input" id="monthly" placeholder="点击选择月份">
+        </form>
+        <form class="add-search">
+            <label>寝室号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="dormid" placeholder="例：13-213">
+        </form>
+        <form class="add-search">
+            <label>学&nbsp;&nbsp;&nbsp;&nbsp;号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="sid">
+        </form>
+        <form class="add-search">
+            <label>姓&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="sname" >
+        </form>
+        <form class="add-search">
+            <label>用水量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="water">
+        </form>
+        <form class="add-search">
+            <label>用电量:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="power">
+        </form>
+        <form class="add-search">
+            <label>水&nbsp;&nbsp;&nbsp;&nbsp;费:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="water-account">
+        </form>
+        <form class="add-search">
+            <label>电&nbsp;&nbsp;&nbsp;&nbsp;费:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" required="required" id="power-account">
+        </form>
+    </div>
+
+
+
+    <div class="search-part">
+        <form method="post">
+            <button class="button" type="submit">
+                <a style="cursor: pointer">确认修改</a>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>

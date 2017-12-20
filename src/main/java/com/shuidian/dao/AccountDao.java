@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AccountDao {
 
-    public List<Account> getAll(Integer userId);
+    public List<Account> getAll();
 
     public List<Account> query(Integer userId, String time);
 

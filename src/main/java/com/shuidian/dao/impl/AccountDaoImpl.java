@@ -12,9 +12,9 @@ public class AccountDaoImpl extends HibernateTools implements AccountDao {
 
     String hql;
 
-    public List<Account> getAll(Integer userId) {
-        hql = "FROM Account a WHERE a.userId = ?";
-        return getSession().createQuery(hql).setParameter(0, userId).list();
+    public List<Account> getAll() {
+        hql = "FROM Account";
+        return getSession().createQuery(hql).list();
     }
 
     public List<Account> query(Integer userId, String time) {

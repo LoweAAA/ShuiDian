@@ -1,0 +1,10 @@
+.container{
+	text-align: center;
+}
+.btn-my{
+	margin-top: 300px;
+	margin-right: 70px;
+	margin-left: 70px;
+	position: relative;
+	width: 300px;
+}

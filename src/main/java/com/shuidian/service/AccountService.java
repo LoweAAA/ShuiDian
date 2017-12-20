@@ -5,7 +5,7 @@ import com.shuidian.model.Account;
 import java.util.List;
 
 public interface AccountService {
-    public List getAccountsByUserId(Integer userId);
+    public List getAccounts();
 
     public List getAccountsByUserIdTime(Integer userId,String time);
 
