@@ -24,7 +24,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     public void add(Account account) {
-
+        accountDao.add(account);
     }
 
     public void delete(Integer id) {
@@ -32,7 +32,15 @@ public class AccountServiceImpl implements AccountService{
     }
 
     public void update(Account account) {
+        accountDao.update(account);
+    }
 
+    public List getByTimeAndRoomId(String time, String roomId) {
+        return accountDao.getByTimeAndRoomId(time,roomId);
+    }
+
+    public List getByTimeAndStudentId(String time, Integer studentId) {
+        return accountDao.getByTimeAndStudentId(time,studentId);
     }
 
 

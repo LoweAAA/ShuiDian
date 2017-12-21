@@ -15,4 +15,8 @@ public interface AccountDao {
     public void delete(Integer id);
 
     public void update(Account account);
+
+    public List<Account> getByTimeAndRoomId(String time,String roomId);
+
+    public List<Account> getByTimeAndStudentId(String time,Integer studentId);
 }

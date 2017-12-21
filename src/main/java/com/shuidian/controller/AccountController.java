@@ -1,5 +1,6 @@
 package com.shuidian.controller;
 
+import com.shuidian.model.Account;
 import com.shuidian.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,4 +42,52 @@ public class AccountController {
         }
     }
 
+    @RequestMapping("/add")
+    @ResponseBody
+    public String add(@RequestParam("time") String time,@RequestParam("roomId") String roomId,@RequestParam("studentId") Integer studentId,@RequestParam("name") String name,@RequestParam("waterCost") String waterCost,@RequestParam("eCost") String eCost,@RequestParam("waterMoney") Double waterMoney,@RequestParam("emoney") Double emoney){
+        Account account=new Account();
+
+            account.setTime(time);
+            account.setRoomId(roomId);
+            account.setStudentId(studentId);
+            account.setName(name);
+            account.setWaterCost(waterCost);
+            account.seteCost(eCost);
+            account.setWaterMoney(waterMoney);
+            account.setEmoney(emoney);
+            accountService.add(account);
+            return "add success";
+
+    }
+    @RequestMapping("/getbytandr")
+    @ResponseBody
+    public List getByTandR(@RequestParam("time") String time,@RequestParam("roomId") String roomId){
+        return accountService.getByTimeAndRoomId(time,roomId);
+    }
+
+    @RequestMapping("/getbytands")
+    @ResponseBody
+    public List getByTandS(@RequestParam("time") String time,@RequestParam("studentId") Integer studentId){
+        return accountService.getByTimeAndStudentId(time,studentId);
+    }
+
+
+
+    @RequestMapping("/update")
+    @ResponseBody
+    public String update(@RequestParam("id") Integer id,@RequestParam("time") String time,@RequestParam("roomId") String roomId,@RequestParam("studentId") Integer studentId,@RequestParam("name") String name,@RequestParam("waterCost") String waterCost,@RequestParam("eCost") String eCost,@RequestParam("waterMoney") Double waterMoney,@RequestParam("emoney") Double emoney){
+        Account account=new Account();
+        account.setId(id);
+        account.setTime(time);
+        account.setRoomId(roomId);
+        account.setStudentId(studentId);
+        account.setName(name);
+        account.setWaterCost(waterCost);
+        account.seteCost(eCost);
+        account.setWaterMoney(waterMoney);
+        account.setEmoney(emoney);
+        accountService.update(account);
+        return "add success";
+
+    }
 }

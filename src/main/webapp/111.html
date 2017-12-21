@@ -1,0 +1,31 @@
+<!--管理员修改信息界面-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="style/jquery.monthpicker.css">
+    <script src="script/jquery-3.2.1.js"></script>
+    <script src="script/jquery.monthpicker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#monthpicker').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6,
+                onMonthSelect: function(m, y) {
+                    console.log('Month: ' + m + ', year: ' + y);
+                }
+            });
+            $('#monthly').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6
+            })
+        });
+    </script>
+</head>
+<body>
+	<div class="search-date">
+        <input type="text" class="input" id="monthly" placeholder="点击选择月份">
+    </div>
+</body>
+</html>

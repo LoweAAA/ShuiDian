@@ -1,9 +1,6 @@
 package com.shuidian.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Account {
@@ -18,6 +15,7 @@ public class Account {
     private Double emoney;
 
     @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     public int getId() {
         return id;

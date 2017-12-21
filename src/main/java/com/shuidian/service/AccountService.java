@@ -14,4 +14,8 @@ public interface AccountService {
     public void delete(Integer id);
 
     public void update(Account account);
+
+    public List getByTimeAndRoomId(String time,String roomId);
+
+    public List getByTimeAndStudentId(String time,Integer studentId);
 }

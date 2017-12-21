@@ -1,6 +1,7 @@
 package test;
 
 import com.shuidian.dao.AccountDao;
+import com.shuidian.model.Account;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class testDao {
     private AccountDao accountDao;
 
     @Test
-    public void testAccountDao(){
-        System.out.println(accountDao.getAll(1));
+    public void testGet(){
+        System.out.println(accountDao.getByTimeAndRoomId("2017-11","10-111").get(0).getName());
     }
 }

@@ -75,8 +75,8 @@
 
     <div class="search-part">
         <form method="post">
-            <input type="text" required="required" placeholder="例：13-213" name="u">
-            <button class="button" type="submit">
+            <input id="room" type="text" required="required" placeholder="例：13-213" name="u">
+            <button class="button" type="button" id="search">
                 <a style="cursor: pointer">搜索</a>
             </button>
         </form>
@@ -99,41 +99,38 @@
             <th>电费</th>
             <th>修改</th>
         </tr>
-
-        <tr class="content-gray" >
-            <td>2017-11</td>
-            <td>10-111</td>
-            <td>15051000</td>
-            <td>Miss wang</td>
-            <td>170l</td>
-            <td>3000度</td>
-            <td>15元</td>
-            <td>100元</td>
-            <td>
-                <a href="true-update.html" style="color: darkred">修改</a>
-            </td>
-        </tr>
-
-        <tr class="content-white">
-            <td>2017-11</td>
-            <td>10-111</td>
-            <td>15051000</td>
-            <td>Miss wang</td>
-            <td>170l</td>
-            <td>3000度</td>
-            <td>15元</td>
-            <td>100元</td>
-            <td>
-                <a href="true-update.html" style="color: darkred">修改</a>
-            </td>
-        </tr>
+        
 
 
-
+        
 
     </table>
+    <div id="loding">获取数据中，请稍后。。。</div>
+    
 </div>
+    <script type="text/javascript" src="./script/update.js"></script>
+    <script type="text/javascript">
+    $("#search").click(function(){
+        $.ajax({
+            type: "GET",
+            data:{"time":$("#monthly").val(),"roomId":$("#room").val()},
+            url: "/Shuidian/account/getbytandr",
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                clearTable();
+                setToTable(data);
+            },
+            error: function(){
+            // $("#logininfo").text("请求超时");
+            console.log("fail");
+            clearTable();
+            $("#loding").text("数据获取失败。");
+        },
+    });
+    });
 
+</script>
 
 
 </body>

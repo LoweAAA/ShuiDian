@@ -6,6 +6,24 @@
   <title>admin First</title>
   <link href="style/bootstrap.css" rel="stylesheet">
   <link href="style/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="style/jquery.monthpicker.css">
+    <script src="script/jquery-3.2.1.js"></script>
+    <script src="script/jquery.monthpicker.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('#monthpicker').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6,
+                onMonthSelect: function(m, y) {
+                    console.log('Month: ' + m + ', year: ' + y);
+                }
+            });
+            $('#monthly').monthpicker({
+                years: [2018,2017,2016,2015, 2014, 2013, 2012, 2011,2010,2009,2008,2007],
+                topOffset: 6
+            })
+        });
+    </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -33,16 +51,19 @@
                   </ul>
               </div>
     <form class="navbar-form navbar-my">
-        <label for="number">学&nbsp&nbsp&nbsp&nbsp号：</label>
-        <input type="text" id="number" class="form-control" placeholder="请输入七位有效数字">
+        <label for="number">学&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp号：</label>
+        <input type="text" id="number" class="form-control" placeholder="请输入八位有效数字">
     </form>
     <form class="navbar-form navbar-my">
-        <label for="meeting">查询日期：</label>
-        <input id="meeting" type="date" value="2017-01-13"/>
+        <div class="search-date">
+          <label for="meeting">查询日期：</label>
+        <input type="text" class="input form-control" id="monthly"  placeholder="点击选择月份">
+    </div>
+      
     </form>
     <button id="start-searching" class="btn btn-lg btn-primary btn-my" style="margin-top: 20px;">开始查询</button>
     <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped" id="tb">
               <thead>
                 <tr>
                   <th>寝室号</th>
@@ -54,21 +75,33 @@
                   <th>电费</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>11-111</td>
-                  <td>11111111</td>
-                  <td>ss</td>
-                  <td>111</td>
-                  <td>122</td>
-                  <td>111</td>
-                  <td>122</td>
-                </tr>
-              </tbody>
             </table>
+            <div id="loding">获取数据中，请稍后。。。</div>
           </div>
   </div>
-    <script type="text/javascript" src="script/jquery-3.2.1.js"></script>
     <script src="script/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./script/search.js"></script>
+    <script type="text/javascript">
+    $("#start-searching").click(function(){
+        $.ajax({
+            type: "GET",
+            data:{"time":$("#monthly").val(),"studentId":$("#number").val()},
+            url: "/Shuidian/account/getbytands",
+            dataType: "json",
+            success: function(data){
+                console.log(data);
+                clearTable();
+                setToTable(data);
+            },
+            error: function(){
+            // $("#logininfo").text("请求超时");
+            console.log("fail");
+            clearTable();
+            $("#loding").text("数据获取失败。");
+        },
+    });
+    });
+
+</script>
 </body>
 </html>
